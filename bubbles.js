@@ -689,6 +689,7 @@
   
   restart = function() {
     player1.deathSpiral();
+    return player1 = new Player(player1.x, player1.y, 20);
   };
 
   start();
