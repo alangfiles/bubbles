@@ -523,7 +523,7 @@
       start();
     }
     if (player1.radius * 1.2 > CANVAS_HEIGHT) {
-      start();
+      restart();
     }
   };
 
@@ -656,6 +656,18 @@
     bullets = [];
     explosions = [];
     return player1 = new Player(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 20);
+  };
+  
+  restart = function() {
+    /*enemies = [];
+    bullets = [];
+    explosions = [];
+    return player1 = new Player(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 20);
+    */
+    /* instead of refreshing, have the player shoot bullets out in 
+    *  a spiral, until the player is a certain size.
+    */
+    start();
   };
 
   start();
