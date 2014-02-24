@@ -280,6 +280,35 @@
       }
       return this.radius = this.radius * (1 - SHOOTER_SHOOT_LOSS);
     };
+    
+    Player.prototype.deathSpiral = function(){
+      
+      var x, y, _ref, trig_value, trig_step, velocity_x, velocity_y, number_of_steps;
+      _ref = this.gunpoint(), x = _ref[0], y = _ref[1];
+      
+      trig_step = 20;
+      trig_value = 0;
+      
+      velocity_x = this.x_velocity;
+      velocity_y = this.y_velocity;
+      
+      while(this.radius > 20){
+        
+        velocity_x = this.x_velocity * Math.sin(trig_value * 180/Math.PI);
+        velocity_y = this.y_velocity * Math.cos(trig_value * 180/Math.PI);
+        
+        if (this.last_bullet_shot + 10 < this.age) {
+        bullets.push(new Bullet(x, y, this.radius * BULLET_SHOOTER_RATIO, velocity_x * 2, velocity_y * 2));
+        this.last_bullet_shot = this.age;
+        }
+        this.radius = this.radius * (1 - SHOOTER_SHOOT_LOSS);
+        
+        trig_value = (trig_value + trig_step)%360;
+      }
+      
+      return this.radius;
+      
+    }
 
     Player.prototype.gunpoint = function() {
       return [this.x + this.width / 2, this.y + this.height / 2];
@@ -659,15 +688,7 @@
   };
   
   restart = function() {
-    /*enemies = [];
-    bullets = [];
-    explosions = [];
-    return player1 = new Player(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 20);
-    */
-    /* instead of refreshing, have the player shoot bullets out in 
-    *  a spiral, until the player is a certain size.
-    */
-    start();
+    player1.deathSpiral();
   };
 
   start();
