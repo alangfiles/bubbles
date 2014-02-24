@@ -684,7 +684,7 @@
     enemies = [];
     bullets = [];
     explosions = [];
-    return player1 = new Player(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 20);
+    return player1 = new Player(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2, 200);
   };
   
   restart = function() {
