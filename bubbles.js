@@ -294,8 +294,8 @@
       
       while(this.radius > 20){
         
-        velocity_x = this.x_velocity * Math.sin(trig_value * 180/Math.PI);
-        velocity_y = this.y_velocity * Math.cos(trig_value * 180/Math.PI);
+        velocity_x = this.x_velocity * Math.cos(trig_value * 180/Math.PI);
+        velocity_y = this.y_velocity * Math.sin(trig_value * 180/Math.PI);
         
         if (this.last_bullet_shot + 10 < this.age) {
         bullets.push(new Bullet(x, y, this.radius * BULLET_SHOOTER_RATIO, velocity_x * 2, velocity_y * 2));
