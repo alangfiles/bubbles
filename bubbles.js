@@ -294,6 +294,17 @@
       
       while(this.radius > 20){
         
+        this.update();
+        this.update();
+        this.update();
+        this.update();
+        this.update();
+        this.update();
+        this.update();
+        this.update();
+        this.update();
+        this.update();
+        
         velocity_x = this.x_velocity * Math.cos(trig_value * 180/Math.PI);
         velocity_y = this.y_velocity * Math.sin(trig_value * 180/Math.PI);
         
@@ -687,7 +698,6 @@
   
   restart = function() {
     player1.deathSpiral();
-    return player1 = new Player(player1.x, player1.y, 20);
   };
 
   start();
